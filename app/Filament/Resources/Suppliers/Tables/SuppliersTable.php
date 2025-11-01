@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Materials\Tables;
+namespace App\Filament\Resources\Suppliers\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
@@ -10,21 +10,18 @@ use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class MaterialsTable
+class SuppliersTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('nama_material')
+                TextColumn::make('nama_supplier')
                     ->searchable(),
-                TextColumn::make('kategori')
+                TextColumn::make('kontak_supplier')
                     ->searchable(),
-                TextColumn::make('satuan')
+                TextColumn::make('alamat_supplier')
                     ->searchable(),
-                TextColumn::make('stok')
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
