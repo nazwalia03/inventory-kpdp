@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Materials\Schemas;
 
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -13,14 +15,22 @@ class MaterialForm
             ->components([
                 TextInput::make('nama_material')
                     ->required(),
-                TextInput::make('kategori')
+                FileUpload::make('gambar')
                     ->required(),
-                TextInput::make('satuan')
+                Select::make('id_kategori')
+                    ->relationship('kategori', 'kategori_material')
+                    ->required(),
+                Select::make('id_satuan')
+                    ->relationship('satuan', 'satuan_material')
                     ->required(),
                 TextInput::make('stok')
                     ->required()
                     ->numeric()
                     ->default(0),
+                TextInput::make('harga')
+                    ->prefix('Rp ')
+                    ->required()
+                    ->numeric(),
             ]);
     }
 }

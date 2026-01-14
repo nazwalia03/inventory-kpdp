@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Materials\Schemas;
 
+use Faker\Provider\Image;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
@@ -13,9 +15,12 @@ class MaterialInfolist
             ->components([
                 TextEntry::make('kode_material'),
                 TextEntry::make('nama_material'),
+                TextEntry::make('gambar'),
                 TextEntry::make('kategori'),
                 TextEntry::make('satuan'),
                 TextEntry::make('stok')
+                    ->numeric(),
+                TextEntry::make('harga')
                     ->numeric(),
                 TextEntry::make('created_at')
                     ->dateTime()

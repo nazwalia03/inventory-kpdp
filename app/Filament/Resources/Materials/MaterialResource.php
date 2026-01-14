@@ -11,6 +11,7 @@ use App\Filament\Resources\Materials\Schemas\MaterialInfolist;
 use App\Filament\Resources\Materials\Tables\MaterialsTable;
 use App\Models\Material;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -20,7 +21,11 @@ class MaterialResource extends Resource
 {
     protected static ?string $model = Material::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCube;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Master Data';
+
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $recordTitleAttribute = 'Material';
 
@@ -55,4 +60,5 @@ class MaterialResource extends Resource
             'edit' => EditMaterial::route('/{record}/edit'),
         ];
     }
+    
 }

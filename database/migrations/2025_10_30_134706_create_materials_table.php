@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('materials', function (Blueprint $table) {
             $table->id();
             $table->string('nama_material');
-            $table->string('kategori');
-            $table->string('satuan');
+            $table->string('image')->nullable();
+            $table->string('id_kategori');
+            $table->string('id_satuan');
             $table->integer('stok')->default(0);
+            $table->bigInteger('price');
             $table->timestamps();
         });
     }

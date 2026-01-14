@@ -7,6 +7,7 @@ use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -18,11 +19,15 @@ class MaterialsTable
             ->columns([
                 TextColumn::make('nama_material')
                     ->searchable(),
+                ImageColumn::make('gambar'),
                 TextColumn::make('kategori')
                     ->searchable(),
                 TextColumn::make('satuan')
                     ->searchable(),
                 TextColumn::make('stok')
+                    ->numeric()
+                    ->sortable(),
+                TextColumn::make('harga')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('created_at')
